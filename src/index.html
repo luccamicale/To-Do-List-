@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1bc3a7e061.js" crossorigin="anonymous"></script>
+    <title>To do List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <span>Today's To Do</span>
+        </div>
+        <div class="form-field">
+            <form action="submit">
+                <input type="text" id="input-task" class="input-task" placeholder="Add to your list..." autocomplete="off">
+                <input type="button" id="addBtn" value="+">
+            </form>
+        </div>
+        <div class="container-ul">
+            <ul class="toDo" id="toDo">
+
+            </ul>
+            <input type="button" class="clearCompleted" value="Clear all completed">
+        </div>
+    </div>
+
+    <script src="index.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+body {
+  background-color: var(--clr-background);
+}
+
+.container {
+  background-color: var(--clr-secondary);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.input-task {
+  width: 80%;
+  border-color: transparent;
+}
+
+#addBtn {
+  width: 9%;
+  position: absolute;
+  background-color: transparent;
+  border-color: transparent;
+  text-align: end;
+}
+
+.container > * {
+  border-bottom: 1px solid #80808040;
+  padding: 0.7em;
+}
+
+.container-ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.container-ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.5em;
+}
+
+.fa-solid {
+  margin-left: auto;
+}
+
+.clearCompleted {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.toDoList li {
+  border-bottom: 1px solid #80808040;
+}
