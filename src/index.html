@@ -8,23 +8,47 @@
     <title>To do List</title>
 </head>
 <body>
-    <div class="container">
-        <div class="title">
-            <span>Today's To Do</span>
-        </div>
-        <div class="form-field">
-            <form action="submit">
-                <input type="text" id="input-task" class="input-task" placeholder="Add to your list..." autocomplete="off">
-                <input type="button" id="addBtn" value="+">
-            </form>
-        </div>
-        <div class="container-ul">
-            <ul class="toDo" id="toDo">
-
-            </ul>
-            <input type="button" class="clearCompleted" value="Clear all completed">
-        </div>
-    </div>
+    <section class="container">
+		<header>
+			<h1>Today s To Do</h1>
+			<form id="new-task-form">
+				<input 
+					type="text" 
+					name="new-task-input" 
+					id="new-task-input" 
+					placeholder="Add to your list..." />
+				<input 
+					type="submit"
+					id="new-task-submit" 
+					value="+" />
+			</form>
+		</header>
+		<main>
+			<section class="task-list">
+	
+				<div id="tasks">
+	
+					<!-- <div class="task">
+						<div class="content">
+							<input 
+								type="text" 
+								class="text" 
+								value="A new task"
+								readonly>
+						</div>
+						<div class="actions">
+							<button class="edit">Edit</button>
+							<button class="delete">Delete</button>
+						</div>
+					</div> -->
+	
+				</div>
+				<div class="clear">
+					<button class="clear-btn">Clear All completed</button>
+				</div>
+			</section>
+		</main>
+	</section>
 
     <script src="index.js" type="module"></script>
 </body>

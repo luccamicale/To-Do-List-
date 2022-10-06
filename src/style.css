@@ -1,54 +1,53 @@
-body {
-  background-color: var(--clr-background);
-}
-
 .container {
-  background-color: var(--clr-secondary);
+  border: 1px solid;
+  width: 40%;
+  background-color: bisque;
+}
+ #new-task-input {
+  width: 490px;
+  height: 30px;
+}
+
+.task {
   display: flex;
-  flex-direction: column;
-  width: 50%;
+  flex-direction: row;
 }
 
-.input-task {
-  width: 80%;
-  border-color: transparent;
+.actions {
+  margin-left: 150px;
+  margin-top: 20px;
 }
 
-#addBtn {
-  width: 9%;
-  position: absolute;
-  background-color: transparent;
-  border-color: transparent;
-  text-align: end;
+.edit {
+  background-color: rgb(212, 66, 95);
+  color: white;
 }
 
-.container > * {
-  border-bottom: 1px solid #80808040;
-  padding: 0.7em;
+.delete {
+  background-color: rgb(106, 189, 28);
+  color: white;
 }
 
-.container-ul {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
+#new-task-submit {
+  background-color: rgb(255, 119, 244);
+  color: white;
 }
 
-.container-ul li {
-  display: flex;
-  align-items: center;
-  gap: 0.7em;
-  padding: 0.5em;
+.text {
+  width: 200px;
+  height: 20px;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 30px;
 }
 
-.fa-solid {
-  margin-left: auto;
+.checkbox {
+  margin-left: 5px;
+  margin-top: 20px;
 }
 
-.clearCompleted {
+.clear-btn {
   width: 100%;
-  padding: 0.5em;
-}
-
-.toDoList li {
-  border-bottom: 1px solid #80808040;
+  height: 35px;
+  margin-top: 20px;
 }
