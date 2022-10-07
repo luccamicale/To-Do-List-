@@ -1,55 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/1bc3a7e061.js" crossorigin="anonymous"></script>
-    <title>To do List</title>
+    <script src="https://kit.fontawesome.com/bfdabd94cd.js" crossorigin="anonymous"></script>
+    <title>To Do list</title>
 </head>
+
 <body>
     <section class="container">
-		<header>
-			<h1>Today s To Do</h1>
-			<form id="new-task-form">
-				<input 
-					type="text" 
-					name="new-task-input" 
-					id="new-task-input" 
-					placeholder="Add to your list..." />
-				<input 
-					type="submit"
-					id="new-task-submit" 
-					value="+" />
-			</form>
-		</header>
-		<main>
-			<section class="task-list">
-	
-				<div id="tasks">
-	
-					<!-- <div class="task">
-						<div class="content">
-							<input 
-								type="text" 
-								class="text" 
-								value="A new task"
-								readonly>
-						</div>
-						<div class="actions">
-							<button class="edit">Edit</button>
-							<button class="delete">Delete</button>
-						</div>
-					</div> -->
-	
-				</div>
-				<div class="clear">
-					<button class="clear-btn">Clear All completed</button>
-				</div>
-			</section>
-		</main>
-	</section>
-
-    <script src="index.js" type="module"></script>
+        <div>
+            <h1 class="name">Today's To Do</h1>
+        </div>
+        <form class="form" name="form" method="get">
+            <input type="text" name="task" class="text-field full" id="text-field" placeholder="Add to your list..." autocomplete="off">
+            <button type="submit" class=" btn">+</button>
+        </form>
+        <ul class="task-list">
+        </ul>
+        <button class="clearbtn btn" id="clear-btn">Clear all completed</button>
+    </section>
 </body>
+
 </html>
