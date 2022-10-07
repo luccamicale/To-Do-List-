@@ -30,6 +30,17 @@ export default function displayTasks() {
       updateBtn.style.display = 'block';
     });
 
+    const taskForm = item.querySelector('.task-form');
+    taskForm.addEventListener('submit', (e) => {
+      const input = Object.fromEntries(
+        new FormData(e.target),
+      );
+      task.description = input.description;
+      localStorage.setItem('toDo', JSON.stringify(toDos));
+      updateBtn.style.display = 'none';
+      deleteBtn.style.display = 'block';
+    });
+
     deleteBtn.addEventListener('click', (e) => {
       e.preventDefault();
       let temp = toDos.filter((item) => item !== task);
@@ -43,15 +54,16 @@ export default function displayTasks() {
       toDoList.removeChild(item);
     });
 
-    const taskForm = item.querySelector('.task-form');
-    taskForm.addEventListener('submit', (e) => {
-      const input = Object.fromEntries(
-        new FormData(e.target),
-      );
-      task.description = input.description;
+    const checkbox = item.querySelector('.checkbox');
+    checkbox.addEventListener('change', () => {
+      task.completed = checkbox.checked;
       localStorage.setItem('toDo', JSON.stringify(toDos));
-      updateBtn.style.display = 'none';
-      deleteBtn.style.display = 'block';
+
+      if (task.completed) {
+        updateText.style.textDecoration = 'line-through';
+      } else {
+        updateText.style.textDecoration = 'none';
+      }
     });
 
     return toDoList;
