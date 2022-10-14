@@ -47,6 +47,7 @@ export default class Store {
       }
     });
     localStorage.setItem('toDos', JSON.stringify(toDos));
+    return check;
   }
 
   static clearAll() {
