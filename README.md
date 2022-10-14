@@ -24,6 +24,12 @@ I creted my website in To do list. Now my website is very simple, but in the nex
 - Twitter: [@luccamicale_]
 - LinkedIn: [luccamicale]
 
+👤 **Daniel Carrera**
+​
+- GitHub: [@carreraprogrammer](https://github.com/carreraprogrammer)
+- Twitter: [@carreraprogrammer](https://twitter.com/carreraprog)
+- LinkedIn: [Daniel Carrera] (https://www.linkedin.com/in/daniel-carrera-paz-85a917244/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
