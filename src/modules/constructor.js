@@ -1,7 +1,7 @@
-export default class Todo {
-  constructor(index, description) {
-    this.index = index;
-    this.description = description;
+export default class ToDos {
+  constructor(value, completed, index) {
+    this.value = value;
     this.completed = false;
+    this.index = index;
   }
 }
