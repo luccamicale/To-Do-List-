@@ -1,5 +1,5 @@
 export default function clearTasks() {
-  const toDos = JSON.parse(localStorage.getItem('toDo'));
+  const toDos = JSON.parse(localStorage.getItem('toDos'));
   const filter = toDos.filter((toDo) => toDo.completed === false);
-  localStorage.setItem('toDo', JSON.stringify(filter));
+  localStorage.setItem('toDos', JSON.stringify(filter));
 }

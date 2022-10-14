@@ -1,13 +1,11 @@
-import Todo from './constructor.js';
+import Interface from './interface.js';
+import Store from './store.js';
+import ToDos from './constructor.js';
 
-export default function addTask(task) {
-  const toDos = JSON.parse(localStorage.getItem('toDo')) || [];
-  const counter = toDos.length + 1;
-  const newTask = new Todo(counter, task);
-
-  toDos.push(newTask);
-  localStorage.setItem('toDo', JSON.stringify(toDos));
-
-  const taskfield = document.querySelector('.text-field');
-  taskfield.value = '';
+export default function add(task) {
+  const completed = 'asd';
+  const toIndex = Store.getToDos().length + 1;
+  const toDo = new ToDos(task, completed, toIndex);
+  Interface.addTask(toDo);
+  Store.addTask(toDo);
 }

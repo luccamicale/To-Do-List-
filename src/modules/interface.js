@@ -1,71 +1,64 @@
-export default function displayTasks() {
-  const toDoList = document.querySelector('.task-list');
+import Store from './store.js';
 
-  let toDos = JSON.parse(localStorage.getItem('toDo')) || [];
+export default class Interface {
+  static displayTasks() {
+    const toDos = Store.getToDos();
+    toDos.forEach((toDo) => Interface.addTask(toDo));
+  }
 
-  toDoList.innerHTML = '';
-  toDos.map((task) => {
-    const item = document.createElement('li');
-    let checkP;
-    let styling;
-    if (task.completed) {
-      checkP = 'checked';
-      styling = 'line-through';
-    } else {
-      checkP = '';
-      styling = 'none';
-    }
-    item.innerHTML = `<form class="task-form b-bottom box"><input name="completed" type="checkbox" ${checkP} class="checkbox"><textarea name="description" class="task-text size" style="text-decoration:${styling}">${task.description}</textarea><button type="button" class="btn delete">Delete</button>
-      <button type="submit" class="btn update">Save</button>
-      </form>`;
-    toDoList.appendChild(item);
+  static addTask(toDo) {
+    const ulList = document.getElementById('toDoList');
+    const task = document.createElement('li');
 
-    const deleteBtn = item.querySelector('.delete');
-    const updateBtn = item.querySelector('.update');
-    const updateText = item.querySelector('.task-text');
+    const check = document.createElement('input');
+    check.type = 'checkbox';
+    check.id = 'completed';
+    check.checked = toDo.completed;
 
-    updateBtn.style.display = 'none';
-
-    updateText.addEventListener('click', () => {
-      updateBtn.style.display = 'block';
+    check.addEventListener('click', (e) => {
+      toDo.completed = e.target.checked;
+      Store.check(toDo.completed, toDo.index);
     });
 
-    const taskForm = item.querySelector('.task-form');
-    taskForm.addEventListener('submit', (e) => {
-      const input = Object.fromEntries(
-        new FormData(e.target),
-      );
-      task.description = input.description;
-      localStorage.setItem('toDo', JSON.stringify(toDos));
-      updateBtn.style.display = 'none';
-      deleteBtn.style.display = 'block';
-    });
+    const text = document.createElement('textarea');
+    text.id = 'task-value';
+    text.readOnly = true;
+    text.classList.add('text-area');
+    text.value = toDo.value;
 
-    deleteBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      let temp = toDos.filter((item) => item !== task);
-      toDos = temp;
-      temp = toDos.map((item) => {
-        item.index = toDos.indexOf(item) + 1;
-        return item;
+    const editBtn = document.createElement('button');
+    editBtn.id = toDo.index;
+    editBtn.classList.add('edit');
+    editBtn.innerHTML = 'Edit';
+
+    task.appendChild(check);
+    task.appendChild(text);
+    task.appendChild(editBtn);
+
+    editBtn.addEventListener('click', () => {
+      text.removeAttribute('readonly');
+      editBtn.innerHTML = 'Save';
+      text.focus();
+      editBtn.addEventListener('click', () => {
+        text.setAttribute('readonly', true);
+        editBtn.innerHTML = 'Edit';
+        Store.editTask(text.value, toDo.index);
       });
-      toDos = temp;
-      localStorage.setItem('toDo', JSON.stringify(toDos));
-      toDoList.removeChild(item);
     });
 
-    const checkbox = item.querySelector('.checkbox');
-    checkbox.addEventListener('change', () => {
-      task.completed = checkbox.checked;
-      localStorage.setItem('toDo', JSON.stringify(toDos));
-
-      if (task.completed) {
-        updateText.style.textDecoration = 'line-through';
-      } else {
-        updateText.style.textDecoration = 'none';
-      }
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML = `<button id=${toDo.index} class="delete">Delete</button>`;
+    ulList.appendChild(task);
+    task.appendChild(deleteBtn);
+    deleteBtn.addEventListener('click', () => {
+      deleteBtn.parentElement.remove();
+      Store.deleteTask(toDo.index);
     });
+  }
 
-    return toDoList;
-  });
+  static deleteTask(el) {
+    if (el.classList.contains('delete')) {
+      el.parentElement.remove();
+    }
+  }
 }
