@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import add from '../modules/ToDo.js';
 import Store from '../modules/store.js';
 import clearTasks from '../modules/clear.js';
